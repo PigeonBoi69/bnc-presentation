@@ -1,0 +1,20 @@
+# dependencies and build output (rebuilt by the scripts, and far too big for git)
+node_modules/
+dist/
+dist-electron/
+release*/
+release-assets/
+
+# logs, OS and editor files
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# never commit secrets
+.env
+.env.*
+*.pem
+*.p12
+*.pfx

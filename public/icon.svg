@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3fe0cd"/>
+      <stop offset="1" stop-color="#0e6f93"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#d4f3ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <!-- stand -->
+  <rect x="238" y="352" width="36" height="52" fill="#0b4f6a" opacity=".55"/>
+  <rect x="174" y="398" width="164" height="22" rx="11" fill="#0b4f6a" opacity=".55"/>
+  <!-- screen -->
+  <rect x="80" y="130" width="352" height="228" rx="26" fill="#0b4f6a" opacity=".45" transform="translate(0 12)"/>
+  <rect x="80" y="118" width="352" height="228" rx="26" fill="url(#screen)"/>
+  <!-- title lines -->
+  <g stroke="#14a89a" stroke-linecap="round">
+    <path d="M122 172h118" stroke-width="16"/>
+    <path d="M122 214h90M122 248h108M122 282h70" stroke-width="12" opacity=".55"/>
+  </g>
+  <!-- bar chart -->
+  <rect x="272" y="262" width="34" height="46" rx="7" fill="#14a89a" opacity=".6"/>
+  <rect x="318" y="224" width="34" height="84" rx="7" fill="#14a89a"/>
+  <rect x="364" y="176" width="34" height="132" rx="7" fill="#ffcf5c"/>
+</svg>

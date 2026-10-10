@@ -1,0 +1,41 @@
+/* How a slide looks. Shared by the editing canvas, thumbnails, the slide show and every export.
+   One slide unit = one CSS pixel; the slide is scaled as a whole with a transform. */
+.slide { position: relative; overflow: hidden; transform-origin: 0 0; background: #fff; color: #000; text-align: left; font-family: 'Aptos', 'Segoe UI', Calibri, Carlito, 'Helvetica Neue', Arial, sans-serif; font-size: 18px; line-height: 1.2; -webkit-font-smoothing: antialiased; }
+.slide *, .slide *::before, .slide *::after { box-sizing: border-box; }
+.slide .layer { position: absolute; inset: 0; pointer-events: none; }
+.slide .el { position: absolute; pointer-events: none; }
+.slide .geo { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
+.slide .tx { position: absolute; display: flex; flex-direction: column; overflow: visible; pointer-events: none; }
+.slide .tx-in { width: 100%; }
+.slide p { margin: 0; min-height: 1em; }
+.slide p[data-bu]::before { content: attr(data-bu); display: inline-block; text-indent: 0; min-width: var(--bu-w, 0); font-family: var(--bu-font, inherit); color: var(--bu-color, inherit); font-size: var(--bu-size, 1em); font-style: normal; text-decoration: none; }
+.slide .lnk { cursor: pointer; }
+
+/* tables */
+.slide table { border-collapse: collapse; table-layout: fixed; }
+.slide td { overflow: hidden; word-break: break-word; }
+.slide td .tx-in { width: 100%; }
+
+.slide .missing { background: #e5e7eb; color: #6b7280; display: flex; align-items: center; justify-content: center; font: 14px 'Segoe UI', sans-serif; }
+.slide .play-badge { position: absolute; left: 50%; top: 50%; width: 56px; height: 56px; margin: -28px 0 0 -28px; border-radius: 50%; background: rgba(0, 0, 0, 0.55); }
+.slide .play-badge::after { content: ''; position: absolute; left: 22px; top: 16px; border-left: 20px solid #fff; border-top: 12px solid transparent; border-bottom: 12px solid transparent; }
+.slide .el.audio .geo { width: 100%; height: 100%; }
+
+/* the editing canvas: things become clickable */
+.slide.editing .sh .geo path { pointer-events: visiblePainted; }
+.slide.editing .sh .tx.has-text, .slide.editing .sh .tx.ph-empty { pointer-events: auto; cursor: text; }
+.slide.editing .pic .clip, .slide.editing .tbl, .slide.editing .ch .geo, .slide.editing .med { pointer-events: auto; }
+.slide.editing .grp * { pointer-events: none; }
+.slide.editing .grp .geo path, .slide.editing .grp .clip { pointer-events: auto; }
+.slide.editing .layer.content { pointer-events: none; }
+
+/* empty placeholder prompt (editing only) */
+.slide .tx.ph-empty p::after { content: var(--prompt); opacity: 0.55; }
+.slide .tx.ph-empty br.e { display: none; }
+
+/* in-place text editor (ProseMirror) */
+.slide .te { position: absolute; z-index: 20; display: flex; flex-direction: column; overflow: visible; pointer-events: auto; cursor: text; }
+.slide .te .ProseMirror { outline: none; width: 100%; white-space: pre-wrap; word-wrap: break-word; min-height: 1em; caret-color: currentColor; }
+.slide .te .ProseMirror p { margin: 0; min-height: 1em; }
+.slide .te .ProseMirror-selectednode { outline: none; }
+.slide .te ::selection { background: rgba(80, 140, 255, 0.35); }

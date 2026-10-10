@@ -1,0 +1,15 @@
+# Keep line endings sane when the repo is used on Windows, macOS and Linux.
+* text=auto
+# shell scripts run inside Linux containers: they MUST stay LF or they break
+*.sh text eol=lf
+*.cjs text eol=lf
+*.mjs text eol=lf
+
+# binary files: never touch them
+*.png binary
+*.ico binary
+*.icns binary
+*.pptx binary
+*.bnctheme binary
+*.bncpres binary
+*.zip binary
